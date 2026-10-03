@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-slate-50 via-white to-blue-50 text-slate-800 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-slate-200/60 rounded-3xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)];
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:border-slate-200 hover:scale-[1.015] hover:-translate-y-0.5;
+  }
+
+  .status-dot {
+    @apply w-2.5 h-2.5 rounded-full;
+  }
+
+  .status-dot-connected {
+    @apply status-dot bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)];
+  }
+
+  .status-dot-disconnected {
+    @apply status-dot bg-red-400 shadow-[0_0_8px_rgba(248,113,113,0.5)] animate-blink;
+  }
+}
+
+@layer utilities {
+  .text-gradient-agri {
+    @apply bg-gradient-to-r from-emerald-500 to-teal-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-home {
+    @apply bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
